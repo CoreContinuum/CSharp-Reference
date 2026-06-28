@@ -17,10 +17,10 @@
         do
         {
           // Display the category of the game
-          Console.WriteLine("Reverse the value of the string. Enter nothing to exit or 0 for next category.");
+          Console.WriteLine("Reverse the value of the string. Press Enter to quit or 0 for next category.");
           Console.WriteLine("");
 
-          // Read the word
+          // Get the users input
           Console.Write("Enter a word:");
           strValue = Console.ReadLine();
 
@@ -44,7 +44,7 @@
           Console.WriteLine("Check to see if a word is a Palindrome. Enter nothing to exit or 0 for next category");
           Console.WriteLine("");
           
-          // Read the word
+          // Get the users input
           Console.Write("Enter a word:");
           strValue = Console.ReadLine();
 
@@ -72,10 +72,10 @@
         do
         {
           // Display the category of the game
-          Console.WriteLine("Count all the vowels of the string entered. Enter nothing to exit or 0 for next category.");
+          Console.WriteLine("Count all the vowels of the string entered. Press Enter to quit or 0 for next category.");
           Console.WriteLine("");
           
-          // Read the word
+          // Get the users input
           Console.Write("Enter a word:");
           strValue = Console.ReadLine();
 
@@ -108,10 +108,10 @@
         do
         {
           // Display the category of the game
-          Console.WriteLine("Count all the words of the sentence. Enter nothing to exit or 0 for next category.");
+          Console.WriteLine("Count all the words of the sentence. Press Enter to quit or 0 for next category.");
           Console.WriteLine("");
 
-          // Read the word
+          // Get the users input
           Console.Write("Enter a word or sentence:");
           strValue = Console.ReadLine();
 
@@ -143,10 +143,10 @@
         do
         {
           // Display the category of the game
-          Console.WriteLine("Remove all duplicate characters. Enter nothing to exit or 0 for next category.");
+          Console.WriteLine("Remove all duplicate characters. Press Enter to quit or 0 for next category.");
           Console.WriteLine("");
 
-          // Read the word
+          // Get the users input
           Console.Write("Enter a word:");
           strValue = Console.ReadLine();
 
@@ -172,11 +172,11 @@
         } while (strValue != "0");
         #endregion
 
-        #region Count all occurances of a substring within a string
+        #region Count all occurrences of a substring within a string
         do
         {
           // Display the category of the game
-          Console.WriteLine("Count all occurances of a substring within a string.  Enter nothing to exit or 0 for next category.");
+          Console.WriteLine("Count all occurrences of a substring within a string.  Press Enter to quit or 0 for next category.");
           Console.WriteLine("");
 
           // Read the string
@@ -194,20 +194,20 @@
               return;
             }
 
-            // Read the occurance
-            Console.Write("Enter occurance:");
-            string? strOccurance = Console.ReadLine();
+            // Read the occurrence
+            Console.Write("Enter occurrence:");
+            string? stroccurrence = Console.ReadLine();
 
             int iOccCnt = 0;
             int index = 0;
 
-            while ((index = strValue.IndexOf(strOccurance, index)) != -1)
+            while ((index = strValue.IndexOf(stroccurrence, index)) != -1)
             {
               iOccCnt++;
-              index += strOccurance.Length;
+              index += stroccurrence.Length;
             }
 
-            Console.WriteLine($"The occurance \"{strOccurance}\" in the string \"{strValue}\" appears {iOccCnt.ToString()} times.");
+            Console.WriteLine($"The occurrence \"{stroccurrence}\" in the string \"{strValue}\" appears {iOccCnt.ToString()} times.");
           }
         } while (strValue != "0");
         #endregion
@@ -216,10 +216,10 @@
         do
         {
           // Display the category of the game
-          Console.WriteLine("Show first non-repeated character. Enter nothing to exit or 0 for next category.");
+          Console.WriteLine("Show first non-repeated character. Press Enter to quit or 0 for next category.");
           Console.WriteLine("");
 
-          // Read the word
+          // Get the users input
           Console.Write("Enter a word:");
           strValue = Console.ReadLine();
 
@@ -252,7 +252,7 @@
 
         #region Check two words and see if they are Anagrams
         // Display the category of the game
-        Console.WriteLine("Check two words and see if they are Anagrams. Enter nothing to exit or 0 for next category.");
+        Console.WriteLine("Check two words and see if they are Anagrams. Press Enter to quit or 0 for next category.");
         Console.WriteLine("");
 
         // Read the string
@@ -272,7 +272,7 @@
               return;
             }
 
-            // Read the word 2
+            // Get the users input 2
             Console.Write("Enter word 2:");
             string? strWord2 = Console.ReadLine();
 
@@ -307,14 +307,14 @@
         }
         #endregion
 
-        #region Capitolize the word or each word a sentence
+        #region Capitalize the word or each word in a sentence
         do
         {
           // Display the category of the game
-          Console.WriteLine("Capitolize the word or each word a sentence. Enter nothing to exit or 0 for next category.");
+          Console.WriteLine("Capitalize the word or each word in a sentence. Press Enter to quit or 0 for next category.");
           Console.WriteLine("");
 
-          // Read the word
+          // Get the users input
           Console.Write("Enter a word or sentence:");
           strValue = Console.ReadLine();
 
@@ -339,7 +339,77 @@
             // Join the string back together and display it
             strValue = string.Join(' ', saSentence);
 
-            Console.WriteLine($"The 1st character capitalization sentence is \"{strValue}\".");
+            Console.WriteLine($"The 1st character of each word capitalization sentence is \"{strValue}\".");
+          }
+        } while (strValue != "0");
+        #endregion
+
+        #region Remove all spaces from a sentence
+        do
+        {
+          // Display the category of the game
+          Console.WriteLine("Remove all spaces from a sentence. Press Enter to quit or 0 for next category.");
+          Console.WriteLine("");
+
+          // Get the users input
+          Console.Write("Enter a word or sentence:");
+          strValue = Console.ReadLine();
+
+          if (strValue == "")
+          {
+            throw new Exception("No string was entered. You must enter a string...");
+          }
+          else if (strValue != "0")
+          {
+            // Split the word or words into string array
+            string[] saSentence = strValue.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+            // Join the string back together without the spaces
+            strValue = string.Join("", saSentence);
+
+            // Display the sentence without the spaces
+            Console.WriteLine($"Removed the spaces from the sentence.  The amended sentence is \"{strValue}\".");
+          }
+        } while (strValue != "0");
+        #endregion
+
+        #region Split a CSV comma delimited string and display its contents one below the other 
+        do
+        {
+          // Display the category of the game
+          Console.WriteLine("Split a CSV comma delimited string and display its contents one below the other. Press Enter to quit or 0 for next category.");
+          Console.WriteLine("");
+
+          // Get the users input
+          Console.Write("Enter a word or sentence:");
+          strValue = Console.ReadLine();
+
+          if (strValue == "")
+          {
+            throw new Exception("No string was entered. You must enter a string...");
+          }
+          else if (strValue != "0")
+          {
+            // Split the word or words into string array
+            string[] saCSVLine = strValue.Split(',', StringSplitOptions.RemoveEmptyEntries);
+
+            // Empty the string value to hold the new string
+            string strValue2 = "";
+
+            // Build a multi-line string from the CSV values
+            foreach (string strWord in saCSVLine)
+            {
+              strValue2 += strWord.Trim().ToString();
+              strValue2 += Environment.NewLine;
+
+              // I also could of done it this way:
+              //strValue2 += strWord.Trim().ToString() + Environment.NewLine;
+            }
+            
+            // Display the CSV comma delimited line and each word extracted from the CSV line
+            Console.WriteLine($"The CSV comma delimited line is \"{strValue}\".");
+            Console.WriteLine($"The data from splitting the CSV line is:");
+            Console.WriteLine($"{strValue2}");
           }
         } while (strValue != "0");
         #endregion
