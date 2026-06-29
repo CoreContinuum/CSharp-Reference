@@ -37,11 +37,11 @@
         } while (strValue != "0");
         #endregion
 
-        #region Check for Palindrome
+        #region Check for Palindrome (a word read, left to right, or right to left, reads the same)
         do
         {
           // Display the category of the game
-          Console.WriteLine("Check to see if a word is a Palindrome. Enter nothing to exit or 0 for next category");
+          Console.WriteLine("Check to see if a word is a Palindrome (a word read, left to right, or right to left, reads the same). Press Enter to quit or 0 for next category.");
           Console.WriteLine("");
           
           // Get the users input
@@ -121,19 +121,10 @@
           }
           else if (strValue != "0")
           {
-            int iWordCnt = 0;
+            string[] words = strValue.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-            for (int i = 0; i < strValue.Length; i++)
-            {
-              if (strValue[i].ToString() == " " ||
-                  strValue[i].ToString() == ". " ||
-                  strValue[i].ToString() == ".  ")
-              {
-                iWordCnt++;
-              }
-            }
+            int iWordCnt = words.Length;
 
-            iWordCnt += 1;
             Console.WriteLine($"The word or sentence \"{strValue}\" contains {iWordCnt.ToString()} word(s).");
           }
         } while (strValue != "0");
@@ -229,22 +220,24 @@
           }
           else if (strValue != "0")
           {
-            int index = -1;
-            int idx = 0;
+            char? cFirstNonRepChar = null;
 
-            while ((strValue.IndexOf(strValue[idx], idx + 1)) != -1)
+            foreach (char c in strValue)
             {
-              index = strValue.IndexOf(strValue[idx], idx + 1);
-              idx++;
+              if (strValue.Count(x => x == c) == 1)
+              {
+                cFirstNonRepChar = c;
+                break;
+              }
             }
 
-            if (index > 0)
+            if (cFirstNonRepChar != null)
             {
-              Console.WriteLine($"The first non-repeating character of \"{strValue}\" is \"{strValue[idx]}\" character.");
+              Console.WriteLine($"The first non-repeating character of \"{strValue}\" is \"{cFirstNonRepChar}\" character.");
             }
             else
             {
-              Console.WriteLine($"The were no repeating characters for string \"{strValue}\".");
+              Console.WriteLine($"The were no non-repeating characters in the string \"{strValue}\".");
             }
           }
         } while (strValue != "0");
