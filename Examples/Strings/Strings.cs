@@ -265,7 +265,7 @@
               return;
             }
 
-            // Get the users input 2
+            // Get the users input for word 2
             Console.Write("Enter word 2:");
             string? strWord2 = Console.ReadLine();
 
